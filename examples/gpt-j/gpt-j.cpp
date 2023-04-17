@@ -2,6 +2,8 @@
 
 #include "utils.h"
 
+#include "gpt-j.h"
+
 #include <cassert>
 #include <cmath>
 #include <cstdio>
@@ -12,17 +14,6 @@
 #include <vector>
 #include <iostream>
 #include <unistd.h>
-
-// default hparams (GPT-J 6B)
-struct gptj_hparams {
-    int32_t n_vocab = 50400;
-    int32_t n_ctx   = 2048;
-    int32_t n_embd  = 4096;
-    int32_t n_head  = 16;
-    int32_t n_layer = 28;
-    int32_t n_rot   = 64;
-    int32_t f16     = 1;
-};
 
 struct gptj_layer {
     // normalization
@@ -625,7 +616,7 @@ int main(int argc, char ** argv) {
     const int64_t t_main_start_us = ggml_time_us();
 
     gpt_params params;
-    params.model = "models/gpt-j-6B/ggml-model.bin";
+    params.model = "models/ gpt-j-6B/ggml-model.bin";
 
     if (gpt_params_parse(argc, argv, params) == false) {
         return 1;

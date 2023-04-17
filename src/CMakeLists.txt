@@ -10,6 +10,7 @@ if (GGML_ALL_WARNINGS)
             -Wstrict-prototypes             \
             -Wpointer-arith                 \
             -Wno-unused-function            \
+            -fPIC                           \
         ")
     else()
         # todo : windows
